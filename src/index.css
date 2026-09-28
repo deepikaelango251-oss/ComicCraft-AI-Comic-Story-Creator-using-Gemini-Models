@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #1a1a24;
+    background-color: #0f1016;
+  }
+}
+
+/* Comic Fonts */
+.font-bangers {
+  font-family: 'Bangers', cursive, fantasy;
+  letter-spacing: 0.05em;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-comic {
+  font-family: 'Comic Neue', cursive, sans-serif;
+}
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+/* Comic Visual Effects */
+.halftone-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+}
+
+.halftone-yellow {
+  background-image: radial-gradient(#fde047 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.comic-shadow {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.comic-shadow-lg {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.comic-shadow-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.comic-border {
+  border: 3px solid #111827;
+}
+
+.comic-border-thick {
+  border: 4px solid #111827;
+}
+
+/* Speech bubble tails */
+.speech-bubble-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 24px;
+  border-width: 12px 10px 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-bubble-bottom-border::before {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 22px;
+  border-width: 16px 12px 0;
+  border-style: solid;
+  border-color: #111827 transparent;
+  display: block;
+  width: 0;
+}
+
+/* Thought bubble dots */
+.thought-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: 2px solid #111827;
+  border-radius: 50%;
+}
+
+.thought-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 12px;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border: 2px solid #111827;
+  border-radius: 50%;
+}
+
+/* Print Styles for Comic Export */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .comic-page-print {
+    box-shadow: none !important;
+    border: 2px solid #000 !important;
+    page-break-after: always;
+  }
+}
